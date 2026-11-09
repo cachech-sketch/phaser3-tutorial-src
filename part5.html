@@ -38,7 +38,7 @@
     var game = new Phaser.Game(config);
 
     function preload ()
-    {    this.load.image('night', 'assets/nightsky.png');
+    {    this.load.image('night','assets/nightsky.png');
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
@@ -47,8 +47,8 @@
     }
 
     function create ()
-    {    this.load.image('night', 'assets/nightsky.png');
-//fix the night sky agign 
+    {     this.add.image(400, 100, 'night');
+//fix the night sky agign // update fix make sure your addding add this image not load this image for the other parts 
         platforms = this.physics.add.staticGroup();
         //ok put lolls them before the ground other wise it looks wired 
         platforms.create(230,500,'lollpop')
@@ -60,7 +60,7 @@
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');
        
-        player = this.physics.add.sprite(100, 4, 'dude');// this places the player 
+        player = this.physics.add.sprite(111, 345, 'dude');// this places the player 
 //pysics add makes it dynamic
         player.setBounce(1);//maybe once he hit the loll it change the bonce that way so the lolly stay in place but he bonce higher 
         player.setCollideWorldBounds(true);//if want to go to a next level i wonder i can keep it true on till the player hits a point on the ground and then make go to the next level //doest let the player leave world bounds 
@@ -84,6 +84,10 @@
             frameRate: 10,
             repeat: -1
         });
+        //this many be the way becuase it check for group if thing are tounching and add to then if make the loll a varble then make so when player colldiers with it will incress the bounce but  the loll will have to become dymic insted 
+        this.physics.add.collider(player, platforms); //if player hit loll then bouce is ++ maybe have make loll there own thing 
+
+
     }
 
     function update ()

@@ -38,6 +38,7 @@
     var game = new Phaser.Game(config);
 
     function preload ()
+    //maybe find a way to size up the scene so i dont have to make all my assists so small
     {    this.load.image('night','assets/nightsky.png');
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
@@ -45,6 +46,7 @@
           this.load.image('lollpop','assets/lollpop.png')
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });//becuase of frame i might need make muliple cake cat insted of just one if i want to look like its moveing  
     }
+    //ask if am going have make a to make a lot cake cat get to look like its moving 
 
     function create ()
     {     this.add.image(400, 100, 'night');

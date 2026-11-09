@@ -42,6 +42,7 @@
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
+        this.load.image('lollpop','assets/lollpop.png')
         this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
 
@@ -53,9 +54,10 @@
         this.add.image(400, 100, 'night');
 
         platforms = this.physics.add.staticGroup();
-
+        //got to firgure out how get rid of the white space 
+        platforms.create(230,500,'lollpop')
         platforms.create(400, 568, 'ground').setScale(2).refreshBody();
-
+//i think am going make it a plateform for now becasue i want to jump on change later if doest go well into something esle 
         platforms.create(600, 400, 'ground');
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');

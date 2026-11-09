@@ -57,12 +57,19 @@
         //got to firgure out how get rid of the white space 
         platforms.create(230,500,'lollpop')
          platforms.create(434,300,'lollpop')
-          platforms.create(230,165,'lollpop')
-        platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+          platforms.create(230,165,'lollpop') //plattforms are static if i want the the player to bounce on them might need to turn into dynamic my worry if i do once the player hit them will the lollpop move in to find out how make it stick in place if i turn from stactic to dyamic
+        platforms.create(400, 568, 'ground').setScale(2).refreshBody();// i can maybe make my own object group to handle this 
 //i think am going make it a plateform for now becasue i want to jump on change later if doest go well into something esle 
         platforms.create(600, 400, 'ground');
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');
+
+        player=this.physics.add.sprite(100,450,'dude')
+        player.setBounce(0.2)
+        player.setCollideWorldBounds(true)
+        this
+
+
     }
 
     function update ()

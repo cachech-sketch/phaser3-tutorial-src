@@ -38,34 +38,36 @@
     var game = new Phaser.Game(config);
 
     function preload ()
-    {
-        this.load.image('sky', 'assets/sky.png');
+    {    this.load.image('night', 'assets/nightsky.png');
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
-        this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+          this.load.image('lollpop','assets/lollpop.png')
+        this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });//becuase of frame i might need make muliple cake cat insted of just one if i want to look like its moveing  
     }
 
     function create ()
-    {
-        this.add.image(400, 300, 'sky');
-
+    {    this.load.image('night', 'assets/nightsky.png');
+//fix the night sky agign 
         platforms = this.physics.add.staticGroup();
-
+        //ok put lolls them before the ground other wise it looks wired 
+        platforms.create(230,500,'lollpop')
+         platforms.create(434,300,'lollpop')
+          platforms.create(200,165,'lollpop') 
         platforms.create(400, 568, 'ground').setScale(2).refreshBody();
-
+ 
         platforms.create(600, 400, 'ground');
         platforms.create(50, 250, 'ground');
         platforms.create(750, 220, 'ground');
-
-        player = this.physics.add.sprite(100, 450, 'dude');
-
+       
+        player = this.physics.add.sprite(100, 4, 'dude');// this places the player 
+//pysics add makes it dynamic
         player.setBounce(0.2);
-        player.setCollideWorldBounds(true);
+        player.setCollideWorldBounds(true);//if want to go to a next level i wonder i can keep it true on till the player hits a point on the ground and then make go to the next level //doest let the player leave world bounds 
 
         this.anims.create({
             key: 'left',
-            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+            frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),// i want to see if i can change the move when the player hit a lollpop like they bouce and goes right goes and turn into left and goes back when do it agian 
             frameRate: 10,
             repeat: -1
         });

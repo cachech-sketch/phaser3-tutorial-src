@@ -38,7 +38,7 @@
 
     function preload ()
     {
-        this.load.image('sky', 'assets/sky.png');
+       this.load.image('night', 'assets/nightsky.png');
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
@@ -49,7 +49,8 @@
 
     function create ()
     {
-        this.add.image(400, 300, 'sky');
+        //the nightsky with the ground add /going to try add lollpops at differnt palces as well 
+        this.add.image(400, 100, 'night');
 
         platforms = this.physics.add.staticGroup();
 
